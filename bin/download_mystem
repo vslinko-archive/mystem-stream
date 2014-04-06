@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Node.js wrapper for `MyStem` morphology text analyzer.
+# Copyright 2014 Vyacheslav Slinko <vyacheslav.slinko@gmail.com>
+#
+
+
+_download_mystem() {
+  dest="$1"
+  url="$2"
+
+  mkdir -p "$dest"
+  cd "$dest"
+
+  if command -v curl >/dev/null; then
+    curl "$url" | tar xvz
+  else
+    wget -O- "$url" | tar xvz
+  fi
+
+  chmod a+x mystem
+}
+
+
+uname=$(uname)
+
+if [ $uname == "Darwin" ]; then
+  _download_mystem "$(dirname $0)/../vendor/darwin" "http://download.yandex.ru/mystem/mystem-2.1-macosx10.8.tar.gz"
+else
+  echo "$uname not supported" >&2
+  exit 1
+fi

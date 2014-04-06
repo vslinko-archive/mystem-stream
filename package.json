@@ -1,0 +1,32 @@
+{
+    "name": "mystem-stream",
+    "version": "0.1.0",
+    "description": "Node.js wrapper for `MyStem` morphology text analyzer.",
+    "keywords": [
+        "morphology",
+        "analyzer",
+        "mystem",
+        "yandex"
+    ],
+    "bugs": {
+      "url": "https://github.com/vslinko/mystem-stream/issues",
+      "email" : "vyacheslav.slinko@gmail.com"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Vyacheslav Slinko",
+        "email": "vyacheslav.slinko@gmail.com",
+        "url": "https://github.com/vslinko"
+    },
+    "main": "lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vslinko/mystem-stream.git"
+    },
+    "scripts": {
+        "postinstall": "bin/download_mystem"
+    },
+    "os": [
+      "darwin"
+    ]
+}

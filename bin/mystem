@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+/**
+ * Node.js wrapper for `MyStem` morphology text analyzer.
+ * Copyright Vyacheslav Slinko <vyacheslav.slinko@gmail.com>
+ */
+
+
+var repl = require('repl');
+var MyStem = require('..');
+
+
+var myStem = new MyStem();
+myStem.run();
+
+repl.start({
+    prompt: 'mystem> ',
+    eval: function replEval(cmd, context, filename, callback) {
+        myStem.stem(cmd.slice(1, -2), callback);
+    }
+}).on('end', function () {
+    myStem.close();
+});
